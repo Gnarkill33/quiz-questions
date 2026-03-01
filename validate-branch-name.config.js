@@ -1,5 +1,5 @@
 export const errorMsg = 'Please use correct branch name 🌿';
-export const pattern = '^(feat|fix|hotfix|chore|refactor|test|docs|ci)/[a-z0-9]+(-[a-z0-9]+)*$';
+export const pattern = '^develop$|^(feat|fix|hotfix|chore|refactor|test|docs|ci)/[a-z0-9]+(-[a-z0-9]+)*$';
 
 // Branch Name Examples:
 // "chore/ci-setup"
