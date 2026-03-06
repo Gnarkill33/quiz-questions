@@ -1,0 +1,54 @@
+.header {
+  padding: 8px 0;
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  background-color: var(--white-900);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.logoWrapper {
+  display: flex;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.nav {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  color: var(--black-900);
+}
+
+.navItem {
+  list-style: none;
+  cursor: pointer;
+}
+
+.btn {
+  font-weight: inherit;
+  padding: 0.7rem 1.75rem;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.loginBtn {
+  color: var(--purple-700);
+  background-color: transparent;
+  padding: 0.7rem 1.75rem;
+}
+
+.signInBtn {
+  color: var(--white-900);
+  background-color: var(--purple-700);
+}
