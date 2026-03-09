@@ -1,9 +1,9 @@
-import { Header } from '@/widgets/Header';
+import { BaseLayout } from './layouts/BaseLayout';
 
 function App() {
   return (
     <>
-      <Header />
+      <BaseLayout />
     </>
   );
 }
