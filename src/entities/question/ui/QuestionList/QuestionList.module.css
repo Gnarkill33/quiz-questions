@@ -1,0 +1,9 @@
+.accordionList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  list-style: none;
+  border-radius: 8px;
+  background-color: var(--white-900);
+  padding: 1.5rem 0;
+}
