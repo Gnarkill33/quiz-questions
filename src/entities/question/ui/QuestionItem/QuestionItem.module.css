@@ -16,6 +16,7 @@
   align-items: center;
   gap: 0.5rem;
   justify-content: space-between;
+  background-color: var(--white-900);
 }
 
 .accordionTitle {
@@ -24,11 +25,10 @@
   font-weight: 500;
   font-size: 20px;
   color: var(--black-900);
-  background-color: inherit;
 }
 
 .rotated {
-  transform: rotate(180deg);
+  transform: rotate(-180deg);
 }
 
 .accordionBody {

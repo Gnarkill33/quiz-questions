@@ -40,7 +40,6 @@ export default defineConfig([
       '@typescript-eslint/consistent-type-imports': 'error',
       '@typescript-eslint/no-inferrable-types': 'error',
       '@typescript-eslint/array-type': 'error',
-      '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
       '@typescript-eslint/no-explicit-any': 'error',
       '@typescript-eslint/no-magic-numbers': ['error', { ignore: [0, 1, 2] }],
