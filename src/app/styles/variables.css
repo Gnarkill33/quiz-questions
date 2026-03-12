@@ -1,8 +1,12 @@
 :root {
   --white-900: #ffffff;
+  --black-700: #474747;
   --black-900: #191919;
   --background-white: #f4f4f4;
   --purple-700: #6a0bff;
+  --light-grey-bg: #f8f8f8;
+  --white-text: #fff;
 
   --font-size-base: 16px;
+  --font-size-sm: 14px;
 }
