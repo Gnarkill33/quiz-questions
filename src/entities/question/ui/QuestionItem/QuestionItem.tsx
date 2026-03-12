@@ -1,46 +1,61 @@
+import clsx from 'clsx';
+
+import type { QuestionType } from '@/entities/question/model/types';
+
 import styles from './QuestionItem.module.css';
 
-export const QuestionItem = () => {
+interface Props {
+  question: QuestionType;
+  toggleQuestion: (id: number) => void;
+  openQuestionId: number | null;
+}
+
+export const QuestionItem = ({ question, toggleQuestion, openQuestionId }: Props) => {
   return (
-    <div>
-      <li className={styles.accordionItem}>
-        <button aria-expanded="true" className={styles.accordionBtn}>
-          <div className={styles.accordionTitleWrapper}>
-            <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="4" cy="4" r="4" fill="#5533FF" />
-            </svg>
-            <span className={styles.accordionTitle}>Title</span>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M6 15L12 9L18 15"
-                stroke="#6A0BFF"
-                strokeWidth="1.66667"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </div>
-        </button>
-        <div className={styles.accordionBody}>
-          <div className={styles.accordionEvalContainer}>
-            <p className={styles.accordionEvalWrapper}>
-              Рейтинг:
-              <span className={styles.accordionEval}>4</span>
-            </p>
-            <p className={styles.accordionEvalWrapper}>
-              Сложность:
-              <span className={styles.accordionEval}>complexity</span>
-            </p>
-          </div>
-          <img className={styles.questionImg} src="imageSrc" alt="Question image" />
-          {/* <div
-            className={styles.accordionText}
-            dangerouslySetInnerHTML={{
-              __html: question.shortAnswer,
-            }}
-          ></div> */}
+    <li className={styles.accordionItem}>
+      <button aria-expanded="true" className={styles.accordionBtn} onClick={() => toggleQuestion(question.id)}>
+        <div className={styles.accordionTitleWrapper}>
+          <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="4" cy="4" r="4" fill="#5533FF" />
+          </svg>
+          <span className={styles.accordionTitle}>{question.title}</span>
+          <svg
+            className={clsx(openQuestionId === question.id ? styles.rotated : '')}
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6 15L12 9L18 15"
+              stroke="#6A0BFF"
+              strokeWidth="1.66667"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
         </div>
-      </li>
-    </div>
+      </button>
+      <div className={clsx(styles.accordionBody, openQuestionId === question.id ? '' : styles.hidden)}>
+        <div className={styles.accordionEvalContainer}>
+          <p className={styles.accordionEvalWrapper}>
+            Рейтинг:
+            <span className={styles.accordionEval}>{question.rate}</span>
+          </p>
+          <p className={styles.accordionEvalWrapper}>
+            Сложность:
+            <span className={styles.accordionEval}>{question.complexity}</span>
+          </p>
+        </div>
+        {question.imageSrc && <img className={styles.questionImg} src={question.imageSrc} alt="Question image" />}
+        <div
+          className={styles.accordionText}
+          dangerouslySetInnerHTML={{
+            __html: question.shortAnswer,
+          }}
+        ></div>
+      </div>
+    </li>
   );
 };
