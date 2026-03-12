@@ -1,13 +1,13 @@
-import { QuestionItem } from '@/entities/question/ui/QuestionItem/QuestionItem';
+import { QuestionList } from '@/entities/question/ui/QuestionList/QuestionList';
 import { Header } from '@/widgets/Header';
 
 export const BaseLayout = () => {
   return (
     <>
       <Header />
-      <div>
-        <QuestionItem />
-      </div>
+      <main>
+        <QuestionList questions={[]} />
+      </main>
     </>
   );
 };
