@@ -2,3 +2,7 @@ body {
   font-family: 'Manrope', sans-serif;
   background-color: var(--background-white);
 }
+
+* {
+  transition: all 0.4s;
+}
