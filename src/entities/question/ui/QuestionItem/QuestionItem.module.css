@@ -1,11 +1,14 @@
 .accordionItem {
-  padding: 1.5rem;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 4px 10px 0 #6a63761a;
+  border-radius: 8px;
 }
 
 .accordionBtn {
   width: 100%;
   border: none;
-  margin: 1.5rem 0;
+  padding: 0;
+  cursor: pointer;
 }
 
 .accordionTitleWrapper {
@@ -21,6 +24,20 @@
   font-weight: 500;
   font-size: 20px;
   color: var(--black-900);
+  background-color: inherit;
+}
+
+.rotated {
+  transform: rotate(180deg);
+}
+
+.accordionBody {
+  margin: 1.5rem 0;
+}
+
+.hidden {
+  display: none;
+  overflow: hidden;
 }
 
 .accordionEvalContainer {
@@ -45,4 +62,14 @@
   background: var(--purple-700);
   font-size: var(--font-size-sm);
   color: var(--white-text);
+}
+
+.questionImg {
+  margin: 1.5rem 0;
+}
+
+.accordionText {
+  font-weight: 500;
+  font-size: var(--font-size-base);
+  color: var(--black-700);
 }
