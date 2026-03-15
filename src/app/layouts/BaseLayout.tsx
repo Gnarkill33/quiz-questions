@@ -1,6 +1,6 @@
 import { useFetchQuestionsQuery } from '@/entities/question/api/questionApi';
-import { QuestionList } from '@/entities/question/ui/QuestionList/QuestionList';
 import { Header } from '@/widgets/Header';
+import { QuestionsBrowser } from '@/widgets/QuestionsBrowser';
 
 export const BaseLayout = () => {
   const { data, error, isLoading } = useFetchQuestionsQuery();
@@ -12,7 +12,7 @@ export const BaseLayout = () => {
     <>
       <Header />
       <main>
-        <QuestionList questions={data?.data || []} />
+        <QuestionsBrowser questions={data?.data || []} />
       </main>
     </>
   );

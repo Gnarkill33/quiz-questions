@@ -1,0 +1,16 @@
+.questionsContainer {
+  border-radius: 1.5rem;
+  padding: 1.5rem 1.25rem 2.5rem;
+  margin: 2.5rem 0 0;
+  box-shadow: 0 4px 10px 0 rgba(106, 99, 118, 0.1);
+  background: var(--white-900);
+}
+
+.questionsTitle {
+  font-weight: 500;
+  font-size: var(--font-size-bg);
+  color: var(--black-900);
+  border-bottom: 0.5px solid var(--black-50);
+  margin: 0;
+  padding: 0 0 1rem;
+}
