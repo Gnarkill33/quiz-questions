@@ -1,3 +1,9 @@
+export interface QuestionResponse {
+  data: QuestionType[];
+  limit: number;
+  page: number;
+  total: number;
+}
 export interface QuestionType {
   id: number;
   title: string;
