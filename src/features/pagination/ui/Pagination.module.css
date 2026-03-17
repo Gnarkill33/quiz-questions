@@ -1,0 +1,37 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrowBtn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.right {
+  transform: rotateY(180deg);
+}
+
+.arrowBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pageBtn {
+  border-radius: 2px;
+  padding: 2px 6px;
+  min-height: 1.6rem;
+  background: transparent;
+  border: none;
+  font-weight: 500;
+  font-size: var(--font-size-sm);
+  color: var(--black-700);
+  cursor: pointer;
+}
+
+.active {
+  background: var(--purple-700);
+  color: var(--white-900);
+}
