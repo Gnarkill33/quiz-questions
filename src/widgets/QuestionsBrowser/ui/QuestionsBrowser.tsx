@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useSearchParams } from 'react-router';
 
 import { useFetchQuestionsQuery } from '@/entities/question/api/questionApi';
 import { QuestionList } from '@/entities/question/ui/QuestionList/QuestionList';
@@ -7,16 +7,13 @@ import { Pagination } from '@/features/pagination';
 import styles from './QuestionsBrowser.module.css';
 
 export const QuestionsBrowser = () => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const { data, error, isLoading } = useFetchQuestionsQuery();
-
+  const [searchParams, setSearchParams] = useSearchParams();
+  const currentPage = Number(searchParams.get('page')) || 1;
+  const { data, error, isLoading } = useFetchQuestionsQuery({ page: currentPage });
   const totalPages = data ? Math.ceil(data.total / data.limit) : 1;
 
   const handlePageChange = (newPage: number) => {
-    if (newPage === currentPage) return;
-    if (newPage >= 1 && newPage <= totalPages) {
-      setCurrentPage(newPage);
-    }
+    setSearchParams({ page: newPage.toString() });
   };
 
   if (isLoading) return <div>Loading...</div>;
