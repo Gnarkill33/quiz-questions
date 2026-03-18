@@ -1,13 +1,13 @@
 import type { ReactNode } from 'react';
 
-import styles from './FilterBtn.module.css';
+import styles from './Button.module.css';
 
 interface Props {
   children: ReactNode;
   onClick: () => void;
 }
 
-export const FilterBtn = ({ children, onClick }: Props) => {
+export const Button = ({ children, onClick }: Props) => {
   return (
     <button className={styles.filterBtn} onClick={onClick}>
       {children}
