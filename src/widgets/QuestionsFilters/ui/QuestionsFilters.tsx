@@ -1,5 +1,4 @@
-import { LevelButtons } from '@/shared/ui/LevelButtons/LevelButtons';
-import { SearchInput } from '@/shared/ui/SearchInput/SearchInput';
+import { LevelButtons, RateButtons, SearchInput } from '@/shared/ui';
 
 import styles from './QuestionsFilters.module.css';
 
@@ -8,6 +7,7 @@ export const QuestionsFilters = () => {
     <aside className={styles.filtersContainer}>
       <SearchInput />
       <LevelButtons />
+      <RateButtons />
     </aside>
   );
 };
