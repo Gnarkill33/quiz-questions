@@ -1,0 +1,15 @@
+.searchLabel {
+  display: flex;
+  border: 1px solid var(--black-50);
+  border-radius: 4.25rem;
+  padding: 0.75rem 1.5rem;
+  gap: 8px;
+}
+
+.searchInput {
+  flex-grow: 1;
+  outline: none;
+  border: none;
+  background: transparent;
+  color: var(--text-color-bright);
+}
