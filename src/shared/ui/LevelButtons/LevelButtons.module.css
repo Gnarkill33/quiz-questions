@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  font-weight: 400;
+  font-size: var(--font-size-sm);
+  color: var(--black-700);
+  margin: 0;
+}
+
+.wrapper {
+  display: flex;
+  gap: 8px;
+}
