@@ -1,3 +1,7 @@
+export interface QuestionParams {
+  page?: number;
+  limit?: number;
+}
 export interface QuestionResponse {
   data: QuestionType[];
   limit: number;
