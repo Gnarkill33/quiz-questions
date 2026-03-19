@@ -1,5 +1,6 @@
 .filtersContainer {
   display: flex;
+  flex: 0;
   flex-direction: column;
   gap: 1.5rem;
   border-radius: 1.5rem;
