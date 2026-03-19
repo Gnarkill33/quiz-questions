@@ -1,10 +1,14 @@
 .filterBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   border: 1px solid rgba(28, 28, 28, 0.2);
   border-radius: 0.75rem;
   padding: 0.6rem 0.75rem;
   background: transparent;
   cursor: pointer;
   font-size: var(--font-size-base);
+  font-weight: 500;
   color: var(--black-800);
 }
 
@@ -15,4 +19,9 @@
 
 .filterBtn:active {
   border: 1px solid var(--purple-700);
+}
+
+.img {
+  width: 20px;
+  height: 20px;
 }
