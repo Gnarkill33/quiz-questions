@@ -1,4 +1,5 @@
 .filtersContainer {
+  height: 100%;
   display: flex;
   flex: 0;
   flex-direction: column;
