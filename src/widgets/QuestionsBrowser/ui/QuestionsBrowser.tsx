@@ -1,7 +1,7 @@
 import { useSearchParams } from 'react-router';
 
+import { QuestionList } from '@/entities/question';
 import { useFetchQuestionsQuery } from '@/entities/question/api/questionApi';
-import { QuestionList } from '@/entities/question/ui/QuestionList/QuestionList';
 import { Pagination } from '@/features/pagination';
 
 import styles from './QuestionsBrowser.module.css';
