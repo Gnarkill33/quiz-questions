@@ -1,5 +1,3 @@
-import type { QuestionSpecialization } from '@/entities/question/model/types';
-
 export interface SpecializationResponse {
   total: number;
   page: number;
@@ -13,3 +11,13 @@ export type SpecializationParams = {
   authorId?: string;
   title?: string;
 };
+
+export interface QuestionSpecialization {
+  id: number;
+  title: string;
+  slug: string;
+  description: string;
+  imageSrc: string | null;
+  createdAt: string;
+  updatedAt: string;
+}

@@ -1,3 +1,6 @@
+import type { QuestionSkill } from '@/entities/skill/model/types';
+import type { QuestionSpecialization } from '@/entities/specialization/model/types';
+
 export interface QuestionParams {
   page?: number;
   limit?: number;
@@ -35,24 +38,4 @@ export interface QuestionType {
 export interface User {
   id: string;
   username: string;
-}
-
-export interface QuestionSpecialization {
-  id: number;
-  title: string;
-  slug: string;
-  description: string;
-  imageSrc: string | null;
-  createdAt: string;
-  updatedAt: string;
-}
-
-export interface QuestionSkill {
-  id: number;
-  title: string;
-  description: string;
-  imageSrc: string;
-  createdAt: string;
-  updatedAt: string;
-  specializations: QuestionSpecialization[];
 }
