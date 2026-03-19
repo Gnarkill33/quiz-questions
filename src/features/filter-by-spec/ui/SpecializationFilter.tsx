@@ -20,7 +20,7 @@ export const SpecializationFilter = () => {
   };
 
   return (
-    <div className={styles.container}>
+    <div>
       <SpecializationButtons specializations={data?.data || []} />
 
       <button className={styles.toggleBtn} onClick={toggleOpen}>
