@@ -1,5 +1,6 @@
 import { useSearchParams } from 'react-router';
 
+import { useAppSelector } from '@/app/providers/store';
 import { QuestionList } from '@/entities/question';
 import { useFetchQuestionsQuery } from '@/entities/question/api/questionApi';
 import { Pagination } from '@/features/pagination';
@@ -7,9 +8,15 @@ import { Pagination } from '@/features/pagination';
 import styles from './QuestionsBrowser.module.css';
 
 export const QuestionsBrowser = () => {
+  const filters = useAppSelector((state) => state.filters);
   const [searchParams, setSearchParams] = useSearchParams();
   const currentPage = Number(searchParams.get('page')) || 1;
-  const { data, error, isLoading } = useFetchQuestionsQuery({ page: currentPage });
+
+  const { data, error, isLoading } = useFetchQuestionsQuery({
+    specializationSlug: filters.specializationSlug,
+    page: currentPage,
+  });
+
   const totalPages = data ? Math.ceil(data.total / data.limit) : 1;
 
   const handlePageChange = (newPage: number) => {

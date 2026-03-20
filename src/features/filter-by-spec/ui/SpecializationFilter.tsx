@@ -1,18 +1,23 @@
 import { useState } from 'react';
 
-import { SpecializationButtons } from '@/entities/specialization';
+import { useAppSelector } from '@/app/providers/store';
 import { useFetchSpecializationsQuery } from '@/entities/specialization/api/specializationApi';
-import { SPEC_COUNT_MIN } from '@/shared/constants/constants';
+import { Button, ButtonWrapper } from '@/shared/ui';
 
 import styles from './SpecializationFilter.module.css';
 
-export const SpecializationFilter = () => {
-  const [isOpen, setIsOpen] = useState(false);
+interface Props {
+  onToggle: (slug: string) => void;
+}
 
-  const { data: initialData } = useFetchSpecializationsQuery({ limit: SPEC_COUNT_MIN });
+export const SpecializationFilter = ({ onToggle }: Props) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const { specializationSlug } = useAppSelector((state) => state.filters);
+
+  const { data: initialData } = useFetchSpecializationsQuery({ limit: 5 });
   const totalSpecializations = initialData?.total || 0;
 
-  const limit = isOpen ? totalSpecializations : SPEC_COUNT_MIN;
+  const limit = isOpen ? totalSpecializations : 5;
   const { data } = useFetchSpecializationsQuery({ limit });
 
   const toggleOpen = () => {
@@ -21,7 +26,19 @@ export const SpecializationFilter = () => {
 
   return (
     <div>
-      <SpecializationButtons specializations={data?.data || []} />
+      <ButtonWrapper title="Специализация">
+        {data?.data.map((spec) => (
+          <Button
+            key={spec.id}
+            selected={spec.slug === specializationSlug}
+            onClick={() => {
+              onToggle(spec.slug);
+            }}
+          >
+            {spec.title}
+          </Button>
+        ))}
+      </ButtonWrapper>
 
       <button className={styles.toggleBtn} onClick={toggleOpen}>
         {isOpen ? 'Скрыть' : 'Посмотреть все'}

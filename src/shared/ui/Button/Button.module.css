@@ -17,7 +17,7 @@
   background-color: var(--purple-700);
 }
 
-.filterBtn:active {
+.active {
   border: 1px solid var(--purple-700);
 }
 
