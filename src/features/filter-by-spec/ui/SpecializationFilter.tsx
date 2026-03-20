@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import { useAppSelector } from '@/app/providers/store';
 import { useFetchSpecializationsQuery } from '@/entities/specialization/api/specializationApi';
 import { Button, ButtonWrapper } from '@/shared/ui';
 
@@ -11,6 +12,7 @@ interface Props {
 
 export const SpecializationFilter = ({ onToggle }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
+  const { specializationSlug } = useAppSelector((state) => state.filters);
 
   const { data: initialData } = useFetchSpecializationsQuery({ limit: 5 });
   const totalSpecializations = initialData?.total || 0;
@@ -28,6 +30,7 @@ export const SpecializationFilter = ({ onToggle }: Props) => {
         {data?.data.map((spec) => (
           <Button
             key={spec.id}
+            selected={spec.slug === specializationSlug}
             onClick={() => {
               onToggle(spec.slug);
             }}
