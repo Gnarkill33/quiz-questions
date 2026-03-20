@@ -4,6 +4,7 @@ import type { QuestionSpecialization } from '@/entities/specialization/model/typ
 export interface QuestionParams {
   page?: number;
   limit?: number;
+  specializationSlug?: string;
 }
 export interface QuestionResponse {
   data: QuestionType[];

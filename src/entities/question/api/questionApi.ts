@@ -6,8 +6,12 @@ export const questionApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     fetchQuestions: builder.query<QuestionResponse, QuestionParams>({
       query: (params) => ({
-        url: `questions/public-questions?page=${params.page}`,
-        params: { page: 1, limit: 10, ...params },
+        url: 'questions/public-questions',
+        params: {
+          specializationSlug: params.specializationSlug,
+          page: params.page || 1,
+          limit: params.limit || 10,
+        },
       }),
       providesTags: ['Question'],
     }),
