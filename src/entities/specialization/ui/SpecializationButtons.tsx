@@ -1,6 +1,7 @@
-import type { QuestionSpecialization } from '@/entities/question/model/types';
 import { Button } from '@/shared/ui/Button/Button';
 import { ButtonWrapper } from '@/shared/ui/ButtonWrapper/ButtonWrapper';
+
+import type { QuestionSpecialization } from '../model/types';
 
 interface Props {
   specializations: QuestionSpecialization[];
