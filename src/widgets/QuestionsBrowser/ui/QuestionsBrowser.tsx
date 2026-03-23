@@ -28,7 +28,7 @@ export const QuestionsBrowser = () => {
 
   return (
     <div className={styles.questionsContainer}>
-      <h2 className={styles.questionsTitle}>Вопросы Специализация</h2>
+      <h2 className={styles.questionsTitle}>Вопросы {filters.specializationTitle}</h2>
       <QuestionList questions={data?.data || []} />
       <Pagination totalPages={totalPages} currentPage={currentPage} onPageChange={handlePageChange} />
     </div>
