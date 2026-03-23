@@ -3,7 +3,7 @@ import { useSearchParams } from 'react-router';
 
 import { useAppDispatch, useAppSelector } from '@/app/providers/store';
 
-import { toggleSpecialization } from './filtersSlice';
+import { setSpecializationTitle, toggleSpecialization } from './filtersSlice';
 
 export const useFilters = () => {
   const dispatch = useAppDispatch();
@@ -33,8 +33,13 @@ export const useFilters = () => {
     dispatch(toggleSpecialization(slug));
   };
 
+  const handleSetSpecializationTitle = (title: string) => {
+    dispatch(setSpecializationTitle(title));
+  };
+
   return {
     filters,
     toggleSpecialization: handleToggleSpecialization,
+    setSpecializationTitle: handleSetSpecializationTitle,
   };
 };

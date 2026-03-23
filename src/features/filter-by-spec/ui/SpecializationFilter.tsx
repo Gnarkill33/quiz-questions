@@ -3,16 +3,14 @@ import { useState } from 'react';
 import { useAppSelector } from '@/app/providers/store';
 import { useFetchSpecializationsQuery } from '@/entities/specialization/api/specializationApi';
 import { Button, ButtonWrapper } from '@/shared/ui';
+import { useFilters } from '@/widgets/QuestionsFilters/model/useFilters';
 
 import styles from './SpecializationFilter.module.css';
 
-interface Props {
-  onToggle: (slug: string) => void;
-}
-
-export const SpecializationFilter = ({ onToggle }: Props) => {
+export const SpecializationFilter = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { specializationSlug } = useAppSelector((state) => state.filters);
+  const { toggleSpecialization, setSpecializationTitle } = useFilters();
 
   const { data: initialData } = useFetchSpecializationsQuery({ limit: 5 });
   const totalSpecializations = initialData?.total || 0;
@@ -32,7 +30,8 @@ export const SpecializationFilter = ({ onToggle }: Props) => {
             key={spec.id}
             selected={spec.slug === specializationSlug}
             onClick={() => {
-              onToggle(spec.slug);
+              toggleSpecialization(spec.slug);
+              setSpecializationTitle(spec.title);
             }}
           >
             {spec.title}
