@@ -4,6 +4,7 @@ import type { FiltersState } from './types';
 
 const initialFiltersState: FiltersState = {
   specializationSlug: 'react-frontend-developer',
+  specializationTitle: 'React Frontend Developer',
 };
 
 const filtersSlice = createSlice({
@@ -13,8 +14,11 @@ const filtersSlice = createSlice({
     toggleSpecialization: (state, action: PayloadAction<string>) => {
       state.specializationSlug = action.payload;
     },
+    setSpecializationTitle: (state, action: PayloadAction<string>) => {
+      state.specializationTitle = action.payload;
+    },
   },
 });
 
-export const { toggleSpecialization } = filtersSlice.actions;
+export const { toggleSpecialization, setSpecializationTitle } = filtersSlice.actions;
 export default filtersSlice.reducer;
