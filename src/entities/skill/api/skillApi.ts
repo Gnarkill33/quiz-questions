@@ -7,7 +7,7 @@ export const skillApi = baseApi.injectEndpoints({
     fetchSkills: builder.query<SkillResponse, SkillParams>({
       query: (params) => ({
         url: '/skills',
-        params: { limit: params.limit },
+        params: { limit: params.limit, specializations: params.specializations },
       }),
       providesTags: ['Skill'],
     }),

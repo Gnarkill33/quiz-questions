@@ -1,40 +1,87 @@
-import { useEffect } from 'react';
+import { useEffect, useCallback } from 'react';
 import { useSearchParams } from 'react-router';
 
 import { useAppDispatch, useAppSelector } from '@/app/providers/store';
 
-import { toggleSpecialization } from './filtersSlice';
+import {
+  setSkills,
+  setSpecializationTitle,
+  setSpecializationSlug,
+  setSpecializationId,
+  clearSkills,
+} from './filtersSlice';
 
 export const useFilters = () => {
   const dispatch = useAppDispatch();
-  const filters = useAppSelector((state) => state.filters);
+  const { specializationSlug, skillsIdx } = useAppSelector((state) => state.filters);
   const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
-    const spec = searchParams.get('slug');
+    const spec = searchParams.get('specialization');
     if (spec) {
-      dispatch(toggleSpecialization(spec));
+      dispatch(setSpecializationSlug(spec));
+    }
+
+    const skills = searchParams.get('skills');
+    if (skills) {
+      skills.split(',').forEach((skill) => {
+        dispatch(setSkills(skill));
+      });
     }
   }, [dispatch, searchParams]);
 
-  useEffect(() => {
-    setSearchParams((prev) => {
-      const params = new URLSearchParams(prev);
+  const handleSetSpecializationSlug = useCallback(
+    (slug: string) => {
+      dispatch(clearSkills());
+      dispatch(setSpecializationSlug(slug));
 
-      if (filters.specializationSlug) {
-        params.set('slug', filters.specializationSlug);
+      const params = new URLSearchParams();
+      params.set('specialization', slug);
+      params.set('page', '1');
+      setSearchParams(params);
+    },
+    [dispatch, setSearchParams],
+  );
+
+  const handleSetSkills = useCallback(
+    (skillId: string) => {
+      const newSkills = skillsIdx.includes(skillId)
+        ? skillsIdx.filter((id) => id !== skillId)
+        : [...skillsIdx, skillId];
+
+      dispatch(setSkills(skillId));
+
+      const params = new URLSearchParams();
+      if (specializationSlug) {
+        params.set('specialization', specializationSlug);
       }
+      if (newSkills.length > 0) {
+        params.set('skills', newSkills.join(','));
+      }
+      params.set('page', '1');
+      setSearchParams(params);
+    },
+    [dispatch, skillsIdx, specializationSlug, setSearchParams],
+  );
 
-      return params;
-    });
-  }, [filters, setSearchParams]);
+  const handleSetSpecializationTitle = useCallback(
+    (title: string) => {
+      dispatch(setSpecializationTitle(title));
+    },
+    [dispatch],
+  );
 
-  const handleToggleSpecialization = (slug: string) => {
-    dispatch(toggleSpecialization(slug));
-  };
+  const handleSetSpecializationId = useCallback(
+    (id: number) => {
+      dispatch(setSpecializationId(id));
+    },
+    [dispatch],
+  );
 
   return {
-    filters,
-    toggleSpecialization: handleToggleSpecialization,
+    setSpecializationId: handleSetSpecializationId,
+    setSpecializationSlug: handleSetSpecializationSlug,
+    setSpecializationTitle: handleSetSpecializationTitle,
+    setSkills: handleSetSkills,
   };
 };
