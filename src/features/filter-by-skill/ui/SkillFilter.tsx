@@ -1,19 +1,19 @@
 import { useState } from 'react';
 
-import { SkillsButtons } from '@/entities/skill';
+import { useAppSelector } from '@/app/providers/store';
 import { useFetchSkillsQuery } from '@/entities/skill/api/skillApi';
-import { SPEC_COUNT_MIN } from '@/shared/constants/constants';
+import { COUNT_MIN, SPEC_COUNT_MAX } from '@/shared/constants/constants';
+import { Button, ButtonWrapper } from '@/shared/ui';
+import { useFilters } from '@/widgets/QuestionsFilters/model/useFilters';
 
 import styles from './SkillFilter.module.css';
 
 export const SkillFilter = () => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const { data: initialData } = useFetchSkillsQuery({ limit: SPEC_COUNT_MIN });
-  const totalSpecializations = initialData?.total || 0;
-
-  const limit = isOpen ? totalSpecializations : SPEC_COUNT_MIN;
-  const { data } = useFetchSkillsQuery({ limit });
+  const { specializationId, skillsIdx } = useAppSelector((state) => state.filters);
+  const { setSkills } = useFilters();
+  const limit = isOpen ? SPEC_COUNT_MAX : COUNT_MIN;
+  const { data } = useFetchSkillsQuery({ limit, specializations: [specializationId] });
 
   const toggleOpen = () => {
     setIsOpen((prev) => !prev);
@@ -21,7 +21,20 @@ export const SkillFilter = () => {
 
   return (
     <div>
-      <SkillsButtons skills={data?.data || []} />
+      <ButtonWrapper title="Навыки">
+        {data?.data.map((skill) => (
+          <Button
+            key={skill.id}
+            selected={skillsIdx.includes(skill.id.toString())}
+            onClick={() => {
+              setSkills(skill.id.toString());
+            }}
+            image={skill.imageSrc}
+          >
+            {skill.title}
+          </Button>
+        ))}
+      </ButtonWrapper>
 
       <button className={styles.toggleBtn} onClick={toggleOpen}>
         {isOpen ? 'Скрыть' : 'Посмотреть все'}
