@@ -5,6 +5,7 @@ export interface QuestionParams {
   page?: number;
   limit?: number;
   specializationSlug?: string;
+  skillsIdx?: string[];
 }
 export interface QuestionResponse {
   data: QuestionType[];
