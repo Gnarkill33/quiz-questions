@@ -14,6 +14,7 @@ export const QuestionsBrowser = () => {
 
   const { data, error, isLoading } = useFetchQuestionsQuery({
     specializationSlug: filters.specializationSlug,
+    skillsIdx: filters.skillsIdx,
     page: currentPage,
   });
 
