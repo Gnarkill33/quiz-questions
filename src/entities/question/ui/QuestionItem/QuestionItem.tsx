@@ -1,6 +1,8 @@
 import clsx from 'clsx';
+import { Link } from 'react-router';
 
 import type { QuestionType } from '@/entities/question/model/types';
+import Arrow from '@/shared/assets/images/arrowNoCircle.svg';
 
 import styles from './QuestionItem.module.css';
 
@@ -55,6 +57,10 @@ export const QuestionItem = ({ question, toggleQuestion, openQuestionId }: Props
             __html: question.shortAnswer,
           }}
         ></div>
+        <Link to={`/questions/public-questions/${question.id}`} className={styles.accordionLink}>
+          <span>Подробнее</span>
+          <img src={Arrow} alt="arrow-right" />
+        </Link>
       </div>
     </li>
   );
