@@ -1,14 +1,21 @@
+import type { QuestionType } from '@/entities/question/model/types';
+import DefaultImage from '@/shared/assets/images/detailsDefault.svg';
+
 import styles from './DetailedQuestionBrowser.module.css';
 
-export const DetailedQuestionBrowser = () => {
+interface Props {
+  question: QuestionType | undefined;
+}
+
+export const DetailedQuestionBrowser = ({ question }: Props) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.contentContainer}>
         <div className={styles.contentWrapper}>
-          <img src="" alt="" className={styles.img} />
+          <img src={question?.imageSrc || DefaultImage} alt="" className={styles.img} />
           <div>
-            <h1 className={styles.title}>Что такое Virtual DOM, и как он работает?</h1>
-            <span>Вопрос проверяет знание React под капотом</span>
+            <h1 className={styles.title}>{question?.title}</h1>
+            <span>{question?.description}</span>
           </div>
         </div>
       </div>
@@ -40,11 +47,21 @@ export const DetailedQuestionBrowser = () => {
       </div>
       <div className={styles.contentContainer}>
         <h3 className={styles.answerTitle}>Краткий ответ</h3>
-        <span className={styles.answerBody}></span>
+        <span
+          className={styles.answerBody}
+          dangerouslySetInnerHTML={{
+            __html: question?.shortAnswer || '',
+          }}
+        ></span>
       </div>
       <div className={styles.contentContainer}>
         <h2 className={styles.answerTitle}>Развернутый ответ</h2>
-        <span className={styles.answerBody}></span>
+        <span
+          className={styles.answerBody}
+          dangerouslySetInnerHTML={{
+            __html: question?.longAnswer || '',
+          }}
+        ></span>
       </div>
     </div>
   );
