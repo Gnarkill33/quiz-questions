@@ -1,11 +1,18 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
+import { useFetchQuestionByIdQuery } from '@/entities/question/api/questionApi';
 import { DetailedQuestionBrowser } from '@/widgets/DetailedQuestionBrowser';
 
 import styles from './DetailedQuestionPage.module.css';
 
 export const DetailedQuestionPage = () => {
   const navigate = useNavigate();
+  const { id } = useParams();
+
+  const { data, isLoading, error } = useFetchQuestionByIdQuery(Number(id));
+
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Failed to load questions</div>;
 
   return (
     <section className={styles.wrapper}>
@@ -19,7 +26,7 @@ export const DetailedQuestionPage = () => {
         <span>Назад</span>
       </button>
       <div className={styles.pageContainer}>
-        <DetailedQuestionBrowser />
+        <DetailedQuestionBrowser question={data} />
       </div>
     </section>
   );
