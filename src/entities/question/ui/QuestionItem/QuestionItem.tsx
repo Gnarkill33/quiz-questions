@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 
 import type { QuestionType } from '@/entities/question/model/types';
 import Arrow from '@/shared/assets/images/arrowNoCircle.svg';
