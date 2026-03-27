@@ -1,6 +1,6 @@
 import baseApi from '@/shared/api/baseApi';
 
-import type { QuestionParams, QuestionResponse } from '../model/types';
+import type { QuestionParams, QuestionResponse, QuestionType } from '../model/types';
 
 export const questionApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
@@ -24,8 +24,11 @@ export const questionApi = baseApi.injectEndpoints({
       },
       providesTags: ['Question'],
     }),
+    fetchQuestionById: builder.query<QuestionType, number>({
+      query: (id) => `questions/public-questions/${id}`,
+    }),
   }),
   overrideExisting: false,
 });
 
-export const { useFetchQuestionsQuery } = questionApi;
+export const { useFetchQuestionsQuery, useFetchQuestionByIdQuery } = questionApi;
