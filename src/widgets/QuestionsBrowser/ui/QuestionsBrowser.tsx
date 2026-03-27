@@ -1,4 +1,4 @@
-import { useSearchParams } from 'react-router';
+import { useSearchParams } from 'react-router-dom';
 
 import { useAppSelector } from '@/app/providers/store';
 import { QuestionList } from '@/entities/question';
