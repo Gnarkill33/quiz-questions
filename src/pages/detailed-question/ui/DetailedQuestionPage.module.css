@@ -1,0 +1,23 @@
+.wrapper {
+  margin: 1.5rem 3rem 0;
+}
+
+.pageContainer {
+  display: flex;
+  gap: 1.25rem;
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 1.5rem auto;
+}
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: var(--font-size-base);
+  color: var(--purple-700);
+}
