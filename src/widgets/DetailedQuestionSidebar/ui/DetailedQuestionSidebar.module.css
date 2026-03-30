@@ -9,6 +9,7 @@
 .wrapper {
   display: flex;
   flex-direction: column;
+  flex: 0;
 }
 
 .title {
@@ -20,6 +21,7 @@
 
 .badgeWrapper {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 

@@ -1,7 +1,9 @@
 .wrapper {
   display: flex;
   flex-direction: column;
+  flex: 1;
   gap: 1.25rem;
+  width: 60%;
 }
 
 .contentContainer {

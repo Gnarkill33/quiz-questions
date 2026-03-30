@@ -1,5 +1,8 @@
 .wrapper {
-  margin: 1.5rem 3rem 0;
+  margin: 1.5rem auto;
+  padding: 0 2.5rem;
+  max-width: var(--max-width);
+  width: 100%;
 }
 
 .pageContainer {
