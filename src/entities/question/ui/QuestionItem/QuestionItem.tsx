@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import type { QuestionType } from '@/entities/question/model/types';
 import Arrow from '@/shared/assets/images/arrowNoCircle.svg';
+import { Badge } from '@/shared/ui/Badge/Badge';
 
 import styles from './QuestionItem.module.css';
 
@@ -41,14 +42,8 @@ export const QuestionItem = ({ question, toggleQuestion, openQuestionId }: Props
       </button>
       <div className={clsx(styles.accordionBody, openQuestionId === question.id ? '' : styles.hidden)}>
         <div className={styles.accordionEvalContainer}>
-          <p className={styles.accordionEvalWrapper}>
-            Рейтинг:
-            <span className={styles.accordionEval}>{question.rate}</span>
-          </p>
-          <p className={styles.accordionEvalWrapper}>
-            Сложность:
-            <span className={styles.accordionEval}>{question.complexity}</span>
-          </p>
+          <Badge title="Рейтинг:" evaluation={question.rate} />
+          <Badge title="Сложность:" evaluation={question.complexity} />
         </div>
         {question.imageSrc && <img className={styles.questionImg} src={question.imageSrc} alt="Question image" />}
         <div
