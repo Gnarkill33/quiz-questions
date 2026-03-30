@@ -8,7 +8,7 @@ import styles from './Button.module.css';
 interface Props {
   children: ReactNode;
   image?: string;
-  onClick: () => void;
+  onClick?: () => void;
   selected: boolean;
 }
 
