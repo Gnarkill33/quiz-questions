@@ -1,0 +1,31 @@
+.contentContainer {
+  box-shadow: 0 4px 10px 0 rgba(106, 99, 118, 0.1);
+  background: var(--white-900);
+
+  padding: 1.5rem;
+  border-radius: 24px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-weight: 500;
+  font-size: var(--font-size-base);
+  color: var(--black-700);
+  opacity: 0.66;
+}
+
+.badgeWrapper {
+  display: flex;
+  gap: 1rem;
+}
+
+.hashTaggedWord {
+  font-weight: 400;
+  font-size: var(--font-size-base);
+  color: var(--purple-700);
+  margin: 0;
+}

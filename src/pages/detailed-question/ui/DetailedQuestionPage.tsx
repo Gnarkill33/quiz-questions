@@ -2,6 +2,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 import { useFetchQuestionByIdQuery } from '@/entities/question/api/questionApi';
 import { DetailedQuestionBrowser } from '@/widgets/DetailedQuestionBrowser';
+import { DetailedQuestionSidebar } from '@/widgets/DetailedQuestionSidebar';
 
 import styles from './DetailedQuestionPage.module.css';
 
@@ -13,6 +14,7 @@ export const DetailedQuestionPage = () => {
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Failed to load questions</div>;
+  if (!data) return <div>Failed to find question</div>;
 
   return (
     <section className={styles.wrapper}>
@@ -27,6 +29,7 @@ export const DetailedQuestionPage = () => {
       </button>
       <div className={styles.pageContainer}>
         <DetailedQuestionBrowser question={data} />
+        <DetailedQuestionSidebar question={data} />
       </div>
     </section>
   );
