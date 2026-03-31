@@ -24,3 +24,28 @@
   font-size: var(--font-size-base);
   color: var(--purple-700);
 }
+
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.5rem;
+  box-shadow: 0 4px 10px 0 rgba(106, 99, 118, 0.1);
+  background: var(--white-900);
+  z-index: 999;
+  transform: translateX(100%);
+}
+
+.overlayVisible {
+  transform: translateX(0);
+}
+
+.closeBtn {
+  display: flex;
+  justify-self: flex-end;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
