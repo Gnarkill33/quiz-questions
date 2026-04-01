@@ -1,0 +1,31 @@
+.nav {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  color: var(--black-900);
+}
+
+.dropDown {
+  padding: 1rem;
+  flex-direction: column;
+  position: absolute;
+  top: 3.5rem;
+  transform: translateX(100%);
+  z-index: 999;
+  background: var(--white-900);
+  box-shadow: 0 4px 10px 0 rgba(106, 99, 118, 0.1);
+}
+
+.navItem {
+  list-style: none;
+  cursor: pointer;
+}
+
+.navItem:hover {
+  color: var(--purple-800);
+}
+
+.navItem:active {
+  color: var(--purple-800);
+}
