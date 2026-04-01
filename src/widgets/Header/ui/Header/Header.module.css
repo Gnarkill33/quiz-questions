@@ -1,4 +1,5 @@
 .header {
+  position: relative;
   padding: 8px 0;
   font-size: var(--font-size-base);
   font-weight: 500;
@@ -25,17 +26,59 @@
   cursor: pointer;
 }
 
-.nav {
-  margin: 0;
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  color: var(--black-900);
+.logoImg {
+  width: 33px;
+  height: 33px;
 }
 
-.navItem {
-  list-style: none;
+.logoTitleImg {
+  width: 99px;
+  height: 32px;
+}
+
+.dropDownBtn {
+  position: relative;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  background: transparent;
+  border: none;
+  font-weight: 500;
+  font-size: var(--font-size-base);
+  color: var(--black-900);
+  margin-left: 1rem;
   cursor: pointer;
+}
+
+.dropDownBtn:hover {
+  color: var(--purple-800);
+}
+
+.arrowImg:hover {
+  color: var(--purple-800);
+}
+
+.rotated {
+  transform: rotate(180deg);
+}
+
+.burgerBtn {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 20px;
+  height: 15px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 101;
+}
+
+.burgerLine {
+  height: 1.5px;
+  background: var(--black-600);
+  transition: all 0.3s ease;
 }
 
 .btn {
@@ -55,4 +98,29 @@
 .signInBtn {
   color: var(--white-900);
   background-color: var(--purple-700);
+}
+
+.authBtn {
+  position: absolute;
+  top: 3rem;
+  right: 3rem;
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  padding: 0.7rem;
+  background: var(--white-900);
+  box-shadow: 0 0 10px -2px rgb(0 0 0 / 12%);
+  border: none;
+}
+
+@media (max-width: 960px) {
+  .burgerBtn {
+    display: flex;
+  }
+
+  .btnWrapper {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
 }
