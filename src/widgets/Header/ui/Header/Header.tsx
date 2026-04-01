@@ -40,7 +40,7 @@ export const Header = () => {
             <button className={styles.dropDownBtn} onClick={toggleDropDownMenu}>
               Подготовка
               <svg
-                className={clsx(styles.arrowImg, isDropDownMenu ? styles.rotated : '')}
+                className={clsx(isDropDownMenu ? styles.rotated : '')}
                 width="16"
                 height="8"
                 viewBox="0 0 16 8"

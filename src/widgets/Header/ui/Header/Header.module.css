@@ -54,10 +54,6 @@
   color: var(--purple-800);
 }
 
-.arrowImg:hover {
-  color: var(--purple-800);
-}
-
 .rotated {
   transform: rotate(180deg);
 }
@@ -122,5 +118,8 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 410px) {
+  .logoTitleImg {
+    display: none;
+  }
 }
