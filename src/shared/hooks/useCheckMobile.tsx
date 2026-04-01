@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 interface Props {
   breakpoint?: number;
-  onDesktopTransition: () => void;
+  onDesktopTransition?: () => void;
 }
 
 export const useCheckMobile = ({ breakpoint = 768, onDesktopTransition }: Props) => {
