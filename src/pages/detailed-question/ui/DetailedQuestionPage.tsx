@@ -45,11 +45,12 @@ export const DetailedQuestionPage = () => {
       </button>
       <div className={styles.pageContainer}>
         <DetailedQuestionBrowser question={data} openSidebar={openSidebar} isMobile={isMobile} />
-        {!isMobile && <DetailedQuestionSidebar question={data} />}
-        {isMobile && (
+        {isMobile ? (
           <Overlay closeSideBar={closeSideBar} isSidebarOpen={isSidebarOpen}>
             <DetailedQuestionSidebar question={data} />
           </Overlay>
+        ) : (
+          <DetailedQuestionSidebar question={data} />
         )}
       </div>
     </section>

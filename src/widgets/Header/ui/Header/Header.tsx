@@ -36,7 +36,7 @@ export const Header = () => {
             <img src={LogoImage} className={styles.logoImg} alt="logo-image" />
             <img src={LogoTitle} className={styles.logoTitleImg} alt="logo-title" />
           </div>
-          {isMobile && (
+          {isMobile ? (
             <button className={styles.dropDownBtn} onClick={toggleDropDownMenu}>
               Подготовка
               <svg
@@ -54,9 +54,10 @@ export const Header = () => {
                 />
               </svg>
             </button>
+          ) : (
+            <Navigation />
           )}
           {isDropDownMenu && <Navigation isDropDownMenu={isDropDownMenu} />}
-          {!isMobile && <Navigation />}
         </div>
 
         <button className={styles.burgerBtn} onClick={toggleMenu}>
