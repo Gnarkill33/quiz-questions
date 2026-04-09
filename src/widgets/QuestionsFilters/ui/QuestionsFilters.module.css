@@ -6,6 +6,5 @@
   gap: 1.5rem;
   border-radius: 1.5rem;
   padding: 1.5rem 1.25rem 2.5rem;
-  box-shadow: 0 4px 10px 0 rgba(106, 99, 118, 0.1);
   background: var(--white-900);
 }
