@@ -1,4 +1,4 @@
-.overlay {
+.drawer {
   width: 360px;
   position: fixed;
   top: 0;
@@ -12,15 +12,6 @@
   overflow-x: hidden;
 }
 
-.overlayVisible {
+.drawerVisible {
   transform: translateX(0);
-}
-
-.closeBtn {
-  display: flex;
-  justify-self: flex-end;
-  background: transparent;
-  border: none;
-  padding: 0;
-  cursor: pointer;
 }

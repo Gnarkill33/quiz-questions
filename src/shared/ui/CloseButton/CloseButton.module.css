@@ -1,0 +1,8 @@
+.closeBtn {
+  display: flex;
+  justify-self: flex-end;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
