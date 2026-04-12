@@ -6,6 +6,10 @@
   gap: 8px;
 }
 
+.searchLabel:focus-within {
+  border-color: var(--purple-700);
+}
+
 .searchInput {
   flex-grow: 1;
   outline: none;

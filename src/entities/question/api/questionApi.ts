@@ -9,12 +9,19 @@ export const questionApi = baseApi.injectEndpoints({
         const queryParams: Record<string, unknown> = {
           page: params.page || 1,
           limit: params.limit || 10,
-          specializationSlug: params.specializationSlug,
         };
+
+        if (params.specializationSlug) {
+          queryParams.specializationSlug = params.specializationSlug;
+        }
 
         if (params.skillsIdx && params.skillsIdx.length > 0) {
           queryParams.skills = params.skillsIdx.join(',');
           queryParams.skillFilterMode = 'ANY';
+        }
+
+        if (params.searchValue) {
+          queryParams.titleOrDescription = params.searchValue;
         }
 
         return {

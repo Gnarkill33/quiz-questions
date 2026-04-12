@@ -1,6 +1,11 @@
 import styles from './SearchInput.module.css';
 
-export const SearchInput = () => {
+interface Props {
+  value: string;
+  onChange: (value: string) => void;
+}
+
+export const SearchInput = ({ value, onChange }: Props) => {
   return (
     <label htmlFor="search" className={styles.searchLabel}>
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -11,7 +16,14 @@ export const SearchInput = () => {
           fill="#A3A3A3"
         />
       </svg>
-      <input className={styles.searchInput} type="text" placeholder="Введите запрос..." id="search" />
+      <input
+        value={value}
+        onChange={(event) => onChange(event.target.value)}
+        className={styles.searchInput}
+        type="text"
+        placeholder="Введите запрос..."
+        id="search"
+      />
     </label>
   );
 };

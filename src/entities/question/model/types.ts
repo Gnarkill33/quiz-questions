@@ -6,6 +6,7 @@ export interface QuestionParams {
   limit?: number;
   specializationSlug?: string;
   skillsIdx?: string[];
+  searchValue: string;
 }
 export interface QuestionResponse {
   data: QuestionType[];

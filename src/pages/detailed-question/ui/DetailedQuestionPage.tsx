@@ -4,7 +4,9 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useFetchQuestionByIdQuery } from '@/entities/question/api/questionApi';
 import { useBodyScrollLock } from '@/shared/hooks/useBodyScrollLock';
 import { useCheckMobile } from '@/shared/hooks/useCheckMobile';
-import { Overlay } from '@/shared/ui/Overlay/Overlay';
+import { useClickOutside } from '@/shared/hooks/useClickOutside';
+import { CloseButton } from '@/shared/ui/CloseButton/CloseButton';
+import { Drawer } from '@/shared/ui/Drawer/Drawer';
 import { DetailedQuestionBrowser } from '@/widgets/DetailedQuestionBrowser';
 import { DetailedQuestionSidebar } from '@/widgets/DetailedQuestionSidebar';
 
@@ -17,16 +19,14 @@ export const DetailedQuestionPage = () => {
 
   const { data, isLoading, error } = useFetchQuestionByIdQuery(Number(id));
 
-  const onDesktopTransition = () => {
-    setIsSidebarOpen(false);
-  };
-
+  const onDesktopTransition = () => setIsSidebarOpen(false);
   const isMobile = useCheckMobile({ breakpoint: 768, onDesktopTransition });
 
   useBodyScrollLock(isSidebarOpen && isMobile);
 
   const openSidebar = () => setIsSidebarOpen(true);
   const closeSideBar = () => setIsSidebarOpen(false);
+  const ref = useClickOutside(closeSideBar);
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Failed to load questions</div>;
@@ -46,9 +46,10 @@ export const DetailedQuestionPage = () => {
       <div className={styles.pageContainer}>
         <DetailedQuestionBrowser question={data} openSidebar={openSidebar} isMobile={isMobile} />
         {isMobile ? (
-          <Overlay closeSideBar={closeSideBar} isSidebarOpen={isSidebarOpen}>
+          <Drawer ref={ref} isSidebarOpen={isSidebarOpen}>
+            <CloseButton onClose={closeSideBar}></CloseButton>
             <DetailedQuestionSidebar question={data} />
-          </Overlay>
+          </Drawer>
         ) : (
           <DetailedQuestionSidebar question={data} />
         )}

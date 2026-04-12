@@ -1,6 +1,6 @@
-export interface FiltersState {
-  specializationId: number;
-  specializationSlug: string;
-  specializationTitle: string;
-  skillsIdx: string[];
+export interface Filters {
+  specialization?: string;
+  skills: string[];
+  search?: string;
+  page: number;
 }
