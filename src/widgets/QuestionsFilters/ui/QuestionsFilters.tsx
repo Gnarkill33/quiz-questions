@@ -8,7 +8,7 @@ import { LevelButtons, RateButtons } from '@/shared/ui';
 import styles from './QuestionsFilters.module.css';
 
 export const QuestionsFilters = () => {
-  const [specializationId, setSpecializationId] = useState<number | null>(11);
+  const [specializationId, setSpecializationId] = useState<number>(11);
 
   return (
     <aside className={styles.filtersContainer}>
