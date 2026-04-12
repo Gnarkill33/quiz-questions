@@ -1,17 +1,19 @@
 import { useState } from 'react';
 
-import { useAppSelector } from '@/app/providers/store';
 import { useFetchSpecializationsQuery } from '@/entities/specialization/api/specializationApi';
 import { SPEC_COUNT_MAX, COUNT_MIN } from '@/shared/constants/constants';
 import { Button, ButtonWrapper } from '@/shared/ui';
-import { useFilters } from '@/widgets/QuestionsFilters/model/useFilters';
+import { useFilters } from '@/widgets/QuestionsFilters/model/hooks/useFilters';
 
 import styles from './SpecializationFilter.module.css';
 
-export const SpecializationFilter = () => {
+interface Props {
+  onChange: (specId: number) => void;
+}
+
+export const SpecializationFilter = ({ onChange }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { specializationSlug } = useAppSelector((state) => state.filters);
-  const { setSpecializationSlug, setSpecializationTitle, setSpecializationId } = useFilters();
+  const { setSpecialization, filters } = useFilters();
   const limit = isOpen ? SPEC_COUNT_MAX : COUNT_MIN;
   const { data } = useFetchSpecializationsQuery({ limit: limit });
 
@@ -25,11 +27,10 @@ export const SpecializationFilter = () => {
         {data?.data.map((spec) => (
           <Button
             key={spec.id}
-            selected={spec.slug === specializationSlug}
+            selected={spec.slug === filters.specialization}
             onClick={() => {
-              setSpecializationId(spec.id);
-              setSpecializationSlug(spec.slug);
-              setSpecializationTitle(spec.title);
+              setSpecialization(spec.slug);
+              onChange(spec.id);
             }}
           >
             {spec.title}
