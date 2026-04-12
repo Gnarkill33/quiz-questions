@@ -1,17 +1,20 @@
 import { useState } from 'react';
 
-import { useAppSelector } from '@/app/providers/store';
 import { useFetchSkillsQuery } from '@/entities/skill/api/skillApi';
 import { COUNT_MIN, SPEC_COUNT_MAX } from '@/shared/constants/constants';
 import { Button, ButtonWrapper } from '@/shared/ui';
-import { useFilters } from '@/widgets/QuestionsFilters/model/useFilters';
+import { useFilters } from '@/widgets/QuestionsFilters/model/hooks/useFilters';
 
 import styles from './SkillFilter.module.css';
 
-export const SkillFilter = () => {
+interface Props {
+  specializationId: number;
+}
+
+export const SkillFilter = ({ specializationId }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { specializationId, skillsIdx } = useAppSelector((state) => state.filters);
-  const { setSkills } = useFilters();
+  const { toggleSkill, filters } = useFilters();
+
   const limit = isOpen ? SPEC_COUNT_MAX : COUNT_MIN;
   const { data } = useFetchSkillsQuery({ limit, specializations: [specializationId] });
 
@@ -25,9 +28,9 @@ export const SkillFilter = () => {
         {data?.data.map((skill) => (
           <Button
             key={skill.id}
-            selected={skillsIdx.includes(skill.id.toString())}
+            selected={filters.skills.includes(skill.id.toString())}
             onClick={() => {
-              setSkills(skill.id.toString());
+              toggleSkill(skill.id.toString());
             }}
             image={skill.imageSrc}
           >
