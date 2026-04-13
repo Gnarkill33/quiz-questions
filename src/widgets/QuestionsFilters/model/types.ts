@@ -4,4 +4,5 @@ export interface Filters {
   search?: string;
   page: number;
   complexity: number[];
+  rate: number[];
 }
