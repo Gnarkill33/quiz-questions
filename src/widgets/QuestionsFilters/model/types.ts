@@ -3,4 +3,5 @@ export interface Filters {
   skills: string[];
   search?: string;
   page: number;
+  complexity: number[];
 }
