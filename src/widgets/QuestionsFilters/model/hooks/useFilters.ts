@@ -48,5 +48,16 @@ export const useFilters = () => {
     setSearch,
 
     setPage: (page: number) => updateFilters({ page }),
+
+    toggleComplexity: (complexity: string[]) => {
+      const normalizedComplexity = complexity.map(Number);
+      const isComplexityExist = normalizedComplexity.every((level) => filters.complexity.includes(level));
+
+      const complexityLevels = isComplexityExist
+        ? filters.complexity.filter((lvl) => !normalizedComplexity.includes(lvl))
+        : [...filters.complexity, ...normalizedComplexity];
+
+      updateFilters({ complexity: complexityLevels });
+    },
   };
 };

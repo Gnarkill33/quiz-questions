@@ -24,6 +24,10 @@ export const questionApi = baseApi.injectEndpoints({
           queryParams.titleOrDescription = params.searchValue;
         }
 
+        if (params.complexity && params.complexity.length > 0) {
+          queryParams.complexity = params.complexity.join(',');
+        }
+
         return {
           url: 'questions/public-questions',
           params: queryParams,

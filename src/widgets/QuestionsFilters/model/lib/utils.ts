@@ -6,6 +6,7 @@ export const parseFilters = (params: URLSearchParams): Filters => {
     skills: params.get('skills')?.split(',') ?? [],
     search: params.get('search') ?? undefined,
     page: Number(params.get('page') ?? 1),
+    complexity: params.get('complexity')?.split(',').map(Number) ?? [],
   };
 };
 
@@ -28,6 +29,12 @@ export const buildParams = (filters: Filters) => {
     params.set('search', filters.search);
   } else {
     params.delete('search');
+  }
+
+  if (filters.complexity?.length) {
+    params.set('complexity', filters.complexity.join(','));
+  } else {
+    params.delete('complexity');
   }
 
   params.set('page', String(filters.page ?? 1));

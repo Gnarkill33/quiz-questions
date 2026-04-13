@@ -2,7 +2,7 @@ import clsx from 'clsx';
 
 import Arrow from '@/shared/assets/images/arrow.svg';
 
-import { usePagination } from '../model/hooks';
+import { usePagination } from '../model/hooks/usePagination';
 
 import styles from './Pagination.module.css';
 
