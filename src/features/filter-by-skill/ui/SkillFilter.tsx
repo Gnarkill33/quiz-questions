@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useFetchSkillsQuery } from '@/entities/skill/api/skillApi';
 import { COUNT_MIN, SPEC_COUNT_MAX } from '@/shared/constants/constants';
 import { Button, ButtonWrapper } from '@/shared/ui';
+import { FilterSkeleton } from '@/shared/ui/FilterSkeleton/FilterSkeleton';
 import { useFilters } from '@/widgets/QuestionsFilters/model/hooks/useFilters';
 
 import styles from './SkillFilter.module.css';
@@ -16,11 +17,15 @@ export const SkillFilter = ({ specializationId }: Props) => {
   const { toggleSkill, filters } = useFilters();
 
   const limit = isOpen ? SPEC_COUNT_MAX : COUNT_MIN;
-  const { data } = useFetchSkillsQuery({ limit, specializations: [specializationId] });
+  const { data, isLoading } = useFetchSkillsQuery({ limit, specializations: [specializationId] });
 
   const toggleOpen = () => {
     setIsOpen((prev) => !prev);
   };
+
+  if (isLoading) {
+    return <FilterSkeleton buttonsCount={limit} />;
+  }
 
   return (
     <div>
