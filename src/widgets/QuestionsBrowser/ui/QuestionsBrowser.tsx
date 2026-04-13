@@ -3,6 +3,7 @@ import { useFetchQuestionsQuery } from '@/entities/question/api/questionApi';
 import { Pagination } from '@/shared/ui';
 import { useFilters } from '@/widgets/QuestionsFilters/model/hooks/useFilters';
 
+import { QuestionsBrowserSkeleton } from './QuestionBrowserSkeleton';
 import styles from './QuestionsBrowser.module.css';
 
 interface Props {
@@ -24,7 +25,10 @@ export const QuestionsBrowser = ({ isMobile, openSidebar }: Props) => {
 
   const totalPages = data ? Math.ceil(data.total / data.limit) : 1;
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) {
+    return <QuestionsBrowserSkeleton isMobile={isMobile} count={10} />;
+  }
+
   if (error) return <div>Failed to load questions</div>;
 
   return (

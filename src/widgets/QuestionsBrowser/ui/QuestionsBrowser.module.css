@@ -28,3 +28,44 @@
   background: transparent;
   cursor: pointer;
 }
+
+.skeletonTitle {
+  width: 18rem;
+  height: 2rem;
+  background: #e8e8e8;
+  border-radius: 4px;
+  animation: pulse 1.5s infinite;
+}
+
+.skeletonButton {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  background: #e8e8e8;
+  animation: pulse 1.5s infinite;
+  flex-shrink: 0;
+}
+
+.skeletonPagination {
+  display: flex;
+  justify-content: center;
+  height: 2.5rem;
+  width: 18rem;
+  background: #e8e8e8;
+  border-radius: 8px;
+  margin: 0 auto;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
