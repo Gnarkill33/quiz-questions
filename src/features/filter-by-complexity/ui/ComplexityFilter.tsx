@@ -11,9 +11,7 @@ export const ComplexityFilter = () => {
         return (
           <Button
             key={complexity.label}
-            onClick={() => {
-              toggleComplexity(complexity.value);
-            }}
+            onClick={() => toggleComplexity(complexity.value)}
             selected={complexity.value.map(Number).every((level) => filters.complexity.includes(level))}
           >
             {complexity.label}
