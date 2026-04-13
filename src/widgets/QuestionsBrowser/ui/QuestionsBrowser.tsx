@@ -1,6 +1,6 @@
 import { QuestionList } from '@/entities/question';
 import { useFetchQuestionsQuery } from '@/entities/question/api/questionApi';
-import { Pagination } from '@/shared/ui/Pagination';
+import { Pagination } from '@/shared/ui';
 import { useFilters } from '@/widgets/QuestionsFilters/model/hooks/useFilters';
 
 import styles from './QuestionsBrowser.module.css';
