@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
 import { ComplexityFilter } from '@/features/filter-by-complexity/ui/ComplexityFilter';
+import { RateFilter } from '@/features/filter-by-rate/ui/RateFilter';
 import { SkillFilter } from '@/features/filter-by-skill/ui/SkillFilter';
 import { SpecializationFilter } from '@/features/filter-by-spec/ui/SpecializationFilter';
 import { TermSearch } from '@/features/search-by-keyword/ui/TermSearch';
-import { RateButtons } from '@/shared/ui';
 
 import styles from './QuestionsFilters.module.css';
 
@@ -17,7 +17,7 @@ export const QuestionsFilters = () => {
       <SpecializationFilter onChange={setSpecializationId} />
       <SkillFilter specializationId={specializationId} />
       <ComplexityFilter />
-      <RateButtons />
+      <RateFilter />
     </aside>
   );
 };

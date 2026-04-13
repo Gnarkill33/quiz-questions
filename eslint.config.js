@@ -42,7 +42,7 @@ export default defineConfig([
       '@typescript-eslint/array-type': 'error',
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
       '@typescript-eslint/no-explicit-any': 'error',
-      '@typescript-eslint/no-magic-numbers': ['error', { ignore: [0, 1, -1, 2, 5, 10, 11, 768, 500] }],
+      '@typescript-eslint/no-magic-numbers': ['error', { ignore: [0, 1, -1, 2, 3, 4, 5, 10, 11, 768, 500] }],
       'import/order': [
         'error',
         {

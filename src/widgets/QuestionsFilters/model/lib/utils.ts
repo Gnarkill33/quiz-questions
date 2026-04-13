@@ -7,6 +7,7 @@ export const parseFilters = (params: URLSearchParams): Filters => {
     search: params.get('search') ?? undefined,
     page: Number(params.get('page') ?? 1),
     complexity: params.get('complexity')?.split(',').map(Number) ?? [],
+    rate: params.get('rate')?.split(',').map(Number) ?? [],
   };
 };
 
@@ -35,6 +36,12 @@ export const buildParams = (filters: Filters) => {
     params.set('complexity', filters.complexity.join(','));
   } else {
     params.delete('complexity');
+  }
+
+  if (filters.rate?.length) {
+    params.set('rate', filters.rate.join(','));
+  } else {
+    params.delete('rate');
   }
 
   params.set('page', String(filters.page ?? 1));

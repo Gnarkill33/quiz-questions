@@ -8,6 +8,7 @@ export interface QuestionParams {
   skillsIdx?: string[];
   searchValue: string;
   complexity: number[];
+  rate: number[];
 }
 export interface QuestionResponse {
   data: QuestionType[];

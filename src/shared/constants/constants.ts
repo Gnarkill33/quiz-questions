@@ -6,7 +6,7 @@ export const COMPLEXITY = [
   { label: '7-8', value: ['7', '8'] },
   { label: '9-10', value: ['9', '10'] },
 ];
-export const RATES = ['1', '2', '3', '4', '5'];
+export const RATES = [1, 2, 3, 4, 5];
 export const COUNT_MIN = 5;
 export const SPEC_COUNT_MAX = 28;
 export const SKILL_COUNT_MAX = 12;
