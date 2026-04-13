@@ -1,0 +1,64 @@
+.skeletonItem {
+  padding: 1rem 1.5rem;
+  box-shadow: 0 4px 10px 0 #6a63761a;
+  border-radius: 8px;
+  background: var(--white-900);
+  animation: fadeIn 0.3s ease;
+}
+
+.skeletonTitleWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: space-between;
+  background-color: var(--white-900);
+}
+
+.skeletonCircle {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #e8e8e8;
+  flex-shrink: 0;
+  animation: pulse 1.5s infinite;
+}
+
+.skeletonTitle {
+  flex: 1;
+  height: 32px;
+  background: #e8e8e8;
+  border-radius: 6px;
+  animation: pulse 1.5s infinite;
+}
+
+.skeletonIcon {
+  width: 24px;
+  height: 24px;
+  background: #e8e8e8;
+  border-radius: 4px;
+  flex-shrink: 0;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
