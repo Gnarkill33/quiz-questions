@@ -19,6 +19,7 @@ export const QuestionsBrowser = ({ isMobile, openSidebar }: Props) => {
     searchValue: filters.search ?? '',
     page: filters.page,
     complexity: filters.complexity,
+    rate: filters.rate,
   });
 
   const totalPages = data ? Math.ceil(data.total / data.limit) : 1;

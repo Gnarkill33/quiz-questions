@@ -28,6 +28,10 @@ export const questionApi = baseApi.injectEndpoints({
           queryParams.complexity = params.complexity.join(',');
         }
 
+        if (params.rate && params.rate.length > 0) {
+          queryParams.rate = params.rate.join(',');
+        }
+
         return {
           url: 'questions/public-questions',
           params: queryParams,
