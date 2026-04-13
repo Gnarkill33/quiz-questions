@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-type PaginationItem = number | '...';
+import type { PaginationItem } from '../types';
 
 interface Props {
   currentPage: number;
