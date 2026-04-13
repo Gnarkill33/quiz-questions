@@ -32,9 +32,10 @@
 .skeletonTitle {
   width: 18rem;
   height: 2rem;
-  background: #e8e8e8;
+  background: linear-gradient(90deg, #e8e8e8 25%, #f0f0f0 50%, #e8e8e8 75%);
+  background-size: 200% 100%;
   border-radius: 4px;
-  animation: pulse 1.5s infinite;
+  animation: shimmer 1.5s infinite;
 }
 
 .skeletonButton {
@@ -42,8 +43,9 @@
   height: 2.5rem;
   border: 1px solid #e8e8e8;
   border-radius: 8px;
-  background: #e8e8e8;
-  animation: pulse 1.5s infinite;
+  background: linear-gradient(90deg, #e8e8e8 25%, #f0f0f0 50%, #e8e8e8 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
   flex-shrink: 0;
 }
 
@@ -52,20 +54,18 @@
   justify-content: center;
   height: 2.5rem;
   width: 18rem;
-  background: #e8e8e8;
+  background: linear-gradient(90deg, #e8e8e8 25%, #f0f0f0 50%, #e8e8e8 75%);
+  background-size: 200% 100%;
   border-radius: 8px;
   margin: 0 auto;
-  animation: pulse 1.5s infinite;
+  animation: shimmer 1.5s infinite;
 }
 
-@keyframes pulse {
+@keyframes shimmer {
   0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
+    background-position: 200% 0;
   }
   100% {
-    opacity: 1;
+    background-position: -200% 0;
   }
 }
