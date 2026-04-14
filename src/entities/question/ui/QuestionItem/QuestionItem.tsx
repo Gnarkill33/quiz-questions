@@ -52,7 +52,7 @@ export const QuestionItem = ({ question, toggleQuestion, openQuestionId }: Props
             __html: question.shortAnswer,
           }}
         ></div>
-        <Link to={`/questions/public-questions/${question.id}`} className={styles.accordionLink}>
+        <Link to={`/questions/${question.id}`} className={styles.accordionLink}>
           <span>Подробнее</span>
           <img src={Arrow} alt="arrow-right" />
         </Link>
