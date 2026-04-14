@@ -1,3 +1,5 @@
+import { Navigate } from 'react-router-dom';
+
 import { QuestionList } from '@/entities/question';
 import { useFetchQuestionsQuery } from '@/entities/question/api/questionApi';
 import { FiltersReset } from '@/features/reset-filters/ui/FiltersReset';
@@ -31,7 +33,9 @@ export const QuestionsBrowser = ({ isMobile, openSidebar }: Props) => {
     return <QuestionsBrowserSkeleton isMobile={isMobile} count={10} />;
   }
 
-  if (error) return <div>Failed to load questions</div>;
+  if (error || !data) {
+    return <Navigate to="/404" replace />;
+  }
 
   return (
     <div className={styles.questionsContainer}>

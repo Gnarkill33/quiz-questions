@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 
 import { useFetchQuestionByIdQuery } from '@/entities/question/api/questionApi';
 import { useBodyScrollLock } from '@/shared/hooks/useBodyScrollLock';
@@ -33,8 +33,9 @@ export const DetailedQuestionPage = () => {
     return <DetailedPageSkeleton isMobile={isMobile} />;
   }
 
-  if (error) return <div>Failed to load questions</div>;
-  if (!data) return <div>Failed to find question</div>;
+  if (error || !data) {
+    return <Navigate to="/404" replace />;
+  }
 
   return (
     <section className={styles.wrapper}>
