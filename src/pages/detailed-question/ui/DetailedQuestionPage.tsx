@@ -10,6 +10,7 @@ import { Drawer } from '@/shared/ui/Drawer/Drawer';
 import { DetailedQuestionBrowser } from '@/widgets/DetailedQuestionBrowser';
 import { DetailedQuestionSidebar } from '@/widgets/DetailedQuestionSidebar';
 
+import { DetailedPageSkeleton } from './DetailedPageSkeleton';
 import styles from './DetailedQuestionPage.module.css';
 
 export const DetailedQuestionPage = () => {
@@ -28,7 +29,10 @@ export const DetailedQuestionPage = () => {
   const closeSideBar = () => setIsSidebarOpen(false);
   const ref = useClickOutside(closeSideBar);
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) {
+    return <DetailedPageSkeleton isMobile={isMobile} />;
+  }
+
   if (error) return <div>Failed to load questions</div>;
   if (!data) return <div>Failed to find question</div>;
 
