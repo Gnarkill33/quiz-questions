@@ -1,5 +1,6 @@
 import { QuestionList } from '@/entities/question';
 import { useFetchQuestionsQuery } from '@/entities/question/api/questionApi';
+import { FiltersReset } from '@/features/reset-filters/ui/FiltersReset';
 import { Pagination } from '@/shared/ui';
 import { useFilters } from '@/widgets/QuestionsFilters/model/hooks/useFilters';
 
@@ -24,6 +25,7 @@ export const QuestionsBrowser = ({ isMobile, openSidebar }: Props) => {
   });
 
   const totalPages = data ? Math.ceil(data.total / data.limit) : 1;
+  const isNotFound = !isLoading && data?.data?.length === 0;
 
   if (isLoading) {
     return <QuestionsBrowserSkeleton isMobile={isMobile} count={10} />;
@@ -48,7 +50,7 @@ export const QuestionsBrowser = ({ isMobile, openSidebar }: Props) => {
         )}
       </div>
 
-      <QuestionList questions={data?.data || []} />
+      {isNotFound ? <FiltersReset /> : <QuestionList questions={data?.data || []} />}
 
       <Pagination totalPages={totalPages} currentPage={filters.page} onPageChange={setPage} />
     </div>

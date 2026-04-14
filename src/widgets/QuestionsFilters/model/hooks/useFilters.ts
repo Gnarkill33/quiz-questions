@@ -58,10 +58,14 @@ export const useFilters = () => {
 
   const setSearch = useCallback(
     (search: string) => {
-      updateFilters({ search });
+      updateFilters({ search: search || undefined });
     },
     [updateFilters],
   );
 
-  return { filters, setSpecialization, toggleSkill, setSearch, setPage, toggleComplexity, toggleRate };
+  const resetFilters = () => {
+    updateFilters({ skills: [], page: 1, specialization: undefined, rate: [], complexity: [], search: undefined });
+  };
+
+  return { filters, setSpecialization, toggleSkill, setSearch, setPage, toggleComplexity, toggleRate, resetFilters };
 };
