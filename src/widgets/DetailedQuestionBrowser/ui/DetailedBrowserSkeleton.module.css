@@ -1,0 +1,143 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 1.25rem;
+  width: 60%;
+}
+
+.contentContainer {
+  box-shadow: 0 4px 10px 0 rgba(106, 99, 118, 0.1);
+  background: var(--white-900);
+  padding: 1.5rem;
+  border-radius: 24px;
+}
+
+.contentWrapper {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.topBlock {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.skeletonImg {
+  width: 160px;
+  height: 160px;
+  background: linear-gradient(90deg, #e8e8e8 25%, #f0f0f0 50%, #e8e8e8 75%);
+  background-size: 200% 100%;
+  border-radius: 12px;
+  animation: shimmer 1.5s infinite;
+  flex-shrink: 0;
+}
+
+.skeletonTitle {
+  flex: 1;
+  height: 2rem;
+  background: linear-gradient(90deg, #e8e8e8 25%, #f0f0f0 50%, #e8e8e8 75%);
+  background-size: 200% 100%;
+  border-radius: 8px;
+  animation: shimmer 1.5s infinite;
+  margin-bottom: 0.75rem;
+}
+
+.skeletonToggleBtn {
+  width: 2.5rem;
+  height: 2.25rem;
+  background: linear-gradient(90deg, #e8e8e8 25%, #f0f0f0 50%, #e8e8e8 75%);
+  background-size: 200% 100%;
+  border-radius: 8px;
+  animation: shimmer 1.5s infinite;
+  flex-shrink: 0;
+}
+
+.skeletonDescription {
+  width: 95%;
+  height: 20px;
+  background: linear-gradient(90deg, #e8e8e8 25%, #f0f0f0 50%, #e8e8e8 75%);
+  background-size: 200% 100%;
+  border-radius: 4px;
+  animation: shimmer 1.5s infinite;
+}
+
+.buttonWrapper {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.skeletonNavBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 1.2rem;
+  width: 7rem;
+  height: 2.5rem;
+  background: linear-gradient(90deg, #e8e8e8 25%, #f0f0f0 50%, #e8e8e8 75%);
+  background-size: 200% 100%;
+  border-radius: 20px;
+  animation: shimmer 1.5s infinite;
+}
+
+.skeletonAnswerTitle {
+  width: 12.5rem;
+  height: 1.75rem;
+  background: linear-gradient(90deg, #e8e8e8 25%, #f0f0f0 50%, #e8e8e8 75%);
+  background-size: 200% 100%;
+  border-radius: 6px;
+  animation: shimmer 1.5s infinite;
+  margin: 0 0 1rem;
+}
+
+.skeletonAnswerLine {
+  height: 1.1rem;
+  background: linear-gradient(90deg, #e8e8e8 25%, #f0f0f0 50%, #e8e8e8 75%);
+  background-size: 200% 100%;
+  border-radius: 4px;
+  animation: shimmer 1.5s infinite;
+  margin: 0 0 0.75rem;
+}
+
+.skeletonAnswerLineShort {
+  width: 60%;
+  height: 1.1rem;
+  background: linear-gradient(90deg, #e8e8e8 25%, #f0f0f0 50%, #e8e8e8 75%);
+  background-size: 200% 100%;
+  border-radius: 4px;
+  animation: shimmer 1.5s infinite;
+}
+
+@media (max-width: 500px) {
+  .contentWrapper {
+    flex-direction: column;
+  }
+
+  .skeletonImg {
+    width: 100%;
+    height: 12.5rem;
+  }
+
+  .wrapper {
+    width: 100%;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

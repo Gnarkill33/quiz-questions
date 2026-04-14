@@ -24,3 +24,25 @@
   font-size: var(--font-size-base);
   color: var(--purple-700);
 }
+
+.backBtnSkeleton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 80px;
+  height: 32px;
+  background: linear-gradient(90deg, #e8e8e8 25%, #f0f0f0 50%, #e8e8e8 75%);
+  background-size: 200% 100%;
+  border-radius: 8px;
+  animation: shimmer 1.5s infinite;
+  margin-bottom: 1.5rem;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
