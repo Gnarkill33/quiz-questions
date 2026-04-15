@@ -1,19 +1,19 @@
 # Interview Quiz ⚡
 
-## Описание 🌐
+## General Overview 🌐
 
-Веб-приложение для подготовки к собеседованиям. Содержит вопросы, которые можно отфильтровать по типу специализации, набору навыков, уровню сложности и рейтингу
+Interview training app that features questions filtered by specialization, skills, difficulty, and rating
 
-## Основная функциональность 🗝️
+## Key Features 🗝️
 
-- Получение и отображение списка вопросов из API
-- Пагинация
-- Фильтрация вопросов по доступным параметрам
-- Поиск вопросов по ключевым словам
-- Переход на страницу конкретного вопроса при клике
-- Отображение подробной информации о выбранном вопросе
+- Retrieving and listing questions from API
+- Pagination
+- Filtering questions by available parameters
+- Keyword search
+- Navigating to a specific question page on click
+- Displaying detailed question
 
-## Основной стэк 💻
+## Technical Stack 💻
 
 [![React][React]][React-url]
 [![TypeScript][TypeScript]][TypeScript-url]
@@ -22,9 +22,9 @@
 [![Vite][Vite]][Vite-url]
 [![Bun][Bun]][Bun-url]
 
-## Скрипты 📑
+## Available Scripts 📑
 
-### Через **Bun**
+### Via **Bun**
 
 ```sh
 bun run dev                # Start the development server
@@ -36,7 +36,7 @@ bun run typecheck          # Run TypeScript type check
 bun run prepare            # Setup Husky hooks
 ```
 
-### Через **npm**
+### Via **npm**
 
 ```sh
 npm run dev                # Start the development server
